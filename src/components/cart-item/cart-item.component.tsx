@@ -1,12 +1,14 @@
+import { memo } from 'react';
+
 import { CartItem } from '../../store/cart/cart.types.js';
 
-import { CartItemContainer, ItemDetails } from './cart-item.styles.jsx';
+import { CartItemContainer, ItemDetails } from './cart-item.styles';
 
 type CartItemComponentProps = {
   cartItem: CartItem;
 };
 
-const CartItemComponent = ({ cartItem }: CartItemComponentProps) => {
+const CartItemComponent = memo(({ cartItem }: CartItemComponentProps) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   return (
@@ -20,6 +22,6 @@ const CartItemComponent = ({ cartItem }: CartItemComponentProps) => {
       </ItemDetails>
     </CartItemContainer>
   );
-};
+});
 
 export default CartItemComponent;
